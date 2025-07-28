@@ -2,30 +2,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOOOD</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOOOD</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header><h1>MOOOD</h1></header>
-    <main>
-        <section class="mood-selector">
-            <h2>ムードで選ぶ</h2>
-            <div class="tags">明るい / 静か / デート / 一人 / 家族</div>
-        </section>
-        <section class="genre-selector">
-            <h2>ジャンルで選ぶ</h2>
-            <div class="tags">イタリアン / 和食 / 中華 / フレンチ</div>
-        </section>
-        <section class="restaurant-list">
-            <div class="card">
-                <h3>和食たかはし <span class="price">¥¥（参考）</span></h3>
-                <p class="summary-label">Googleレビュー要約</p>
-                <p class="summary">静かで丁寧な接客。家庭的な味が好評。</p>
-                <p class="stats">4.3 ★（123件）</p>
-            </div>
-        </section>
-    </main>
+  <header><h1>MOOOD</h1></header>
+  <section>
+    <h2>ムードで選ぶ</h2>
+    <div class="tags">
+      <button>明るい</button>
+      <button>ムーディー</button>
+      <button>居酒屋</button>
+      <button>家庭約</button>
+    </div>
+    <h2>ジャンルで選ぶ</h2>
+    <div class="tags">
+      <button>イタリアン</button>
+      <button>居酒屋</button>
+    </div>
+  </section>
+  <section id="stores" class="card-list"></section>
+  <script src="script.js"></script>
 </body>
 </html>

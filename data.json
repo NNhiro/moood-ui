@@ -1,0 +1,17 @@
+
+[
+  {
+    "name": "獅子丸 銀座",
+    "rating": "4.0",
+    "reviews": "35",
+    "comment": "カサッとした居酒屋で楽しむ贅沢のひととき。",
+    "image": "assets/sample1.jpg"
+  },
+  {
+    "name": "オストレア 銀座コリドー通り店",
+    "rating": "4.1",
+    "reviews": "190",
+    "comment": "ムーディーな雰囲気でしおサク料理を味わう。",
+    "image": "assets/sample2.jpg"
+  }
+]
