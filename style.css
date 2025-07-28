@@ -1,0 +1,12 @@
+
+body { font-family: 'Helvetica Neue', sans-serif; margin: 0; padding: 0; background: #f8f8f8; color: #333; }
+header { background: #fff; padding: 1em; text-align: center; border-bottom: 1px solid #ddd; }
+main { padding: 1em; }
+section { margin-bottom: 2em; }
+h2 { font-size: 1.2em; color: #444; }
+.tags { color: #111; margin-top: 0.5em; }
+.card { background: #fff; padding: 1em; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 1em; }
+.price { font-size: 0.9em; color: #666; }
+.summary-label { font-size: 0.8em; color: #888; margin-top: 0.5em; }
+.summary { font-size: 0.95em; margin: 0.2em 0; }
+.stats { font-size: 0.85em; color: #777; }

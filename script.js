@@ -1,0 +1,1 @@
+// JS placeholder (not functional in this mock)
