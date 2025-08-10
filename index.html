@@ -1,100 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MOOOD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 1rem;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-        .filters {
-            margin-bottom: 2rem;
-        }
-        .filters h2 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        .filters .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .tag {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0.4rem 1rem;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 0.8rem;
-        }
-        .card h3 {
-            margin: 0 0 0.3rem;
-            font-size: 1.2rem;
-        }
-        .card .info {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        .card .desc {
-            font-size: 0.95rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOOOD</title>
+  <meta name="description" content="MOOOD｜ムード×ジャンルで探す。画像なしで軽快、Googleマップへワンタップ。レビュー要約・参考価格つき。"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>MOOOD</h1>
-
-    <div class="filters">
-        <h2>ムードで選ぶ</h2>
-        <div class="tags">
-            <div class="tag">明るい</div>
-            <div class="tag">ムーディー</div>
-            <div class="tag">居酒屋</div>
-            <div class="tag">家庭約</div>
-        </div>
-        <h2>ジャンルで選ぶ</h2>
-        <div class="tags">
-            <div class="tag">イタリアン</div>
-            <div class="tag">居酒屋</div>
-        </div>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-name">MOOOD</span>
     </div>
+    <nav class="site-nav">
+      <a href="#filters">ムード</a>
+      <a href="#filters">ジャンル</a>
+    </nav>
+  </header>
 
-    <div class="card">
-        <img src="assets/shishimaru.jpg" alt="獅子丸 銀座">
-        <h3>獅子丸 銀座</h3>
-        <div class="info">￥￥ 4.0 ★ 35件</div>
-        <div class="desc">カサッとした居酒屋で楽しむ贅沢のひととき。</div>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">ムードで選ぶ、<span class="accent">今日の一軒</span></h1>
+      <p class="hero-copy">画像なしでも迷わない。レビュー要約と直リンクで、いまの気分に合う店へ。</p>
+      <a class="hero-cta" href="#filters">気分で探す</a>
     </div>
+  </section>
 
-    <div class="card">
-        <img src="assets/ostrea.jpg" alt="オストレア 銀座コリドー通り店">
-        <h3>オストレア 銀座コリドー通り店</h3>
-        <div class="info">￥￥ 4.1 ★ 190件</div>
-        <div class="desc">ムーディーな雰囲気でしおサクリ料理を味わう。</div>
-    </div>
+  <main>
+    <section id="filters" class="filters">
+      <div class="filter-block">
+        <h2 class="subtle">ムードで選ぶ</h2>
+        <div class="tags" id="mood-tags"></div>
+      </div>
+      <div class="filter-block">
+        <h2 class="subtle">ジャンルで選ぶ</h2>
+        <div class="tags" id="genre-tags"></div>
+      </div>
+    </section>
+
+    <section class="results">
+      <div id="cards" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© MOOOD</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

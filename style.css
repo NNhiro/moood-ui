@@ -1,51 +1,83 @@
+/* Base */
+:root{
+  --bg:#FAFAFA;
+  --panel:#FFFFFF;
+  --ink:#111111;
+  --ink-sub:#444444; /* タイトルは黒に近いグレー */
+  --muted:#888888;
+  --line:#EAEAEA;
+  --accent:#F24E1E;  /* レッド寄りのオレンジをアクセントに */
+  --accent-quiet:#FFE8E0;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Noto Sans JP', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
 
-body {
-  font-family: sans-serif;
-  background: #f9f9f9;
-  margin: 0;
-  padding: 0 1em;
-  color: #333;
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px; background:var(--panel); border-bottom:1px solid var(--line);
 }
-h1 {
-  text-align: center;
-  font-size: 2em;
-  margin: 1em 0;
+.brand{display:flex; align-items:center; gap:10px;}
+.logo-dot{width:14px; height:14px; border-radius:50%; background:var(--accent);}
+.brand-name{font-weight:700; letter-spacing:0.2px; color:var(--ink-sub)}
+.site-nav a{color:var(--ink-sub); text-decoration:none; margin-left:16px; font-size:14px}
+.site-nav a:hover{opacity:.8}
+
+/* Hero */
+.hero{background:linear-gradient(180deg, #fff, #fafafa); border-bottom:1px solid var(--line)}
+.hero-inner{max-width:1040px; margin:0 auto; padding:40px 20px; text-align:center}
+.hero-title{color:var(--ink-sub); font-size:28px; margin:0 0 8px}
+.accent{color:var(--accent)}
+.hero-copy{color:#555; margin:0 0 18px}
+.hero-cta{display:inline-block; padding:10px 16px; background:var(--accent); color:#fff; border-radius:10px; text-decoration:none}
+.hero-cta:hover{opacity:.95}
+
+/* Filters */
+.filters{max-width:1040px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns:1fr; gap:20px}
+.filter-block{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px}
+.subtle{color:var(--ink-sub); font-size:16px; margin:0 0 10px}
+.tags{display:flex; flex-wrap:wrap; gap:8px}
+.tag{
+  padding:8px 12px; border:1px solid var(--line); background:#fff; border-radius:999px; cursor:pointer; font-size:14px; color:#000;
 }
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin-bottom: 1em;
+.tag.active{background:var(--accent-quiet); border-color:#FFD1C4}
+
+/* Grid */
+.results{max-width:1040px; margin:12px auto 60px; padding:0 20px}
+.grid{display:grid; grid-template-columns:1fr; gap:14px}
+@media(min-width:720px){ .grid{grid-template-columns:1fr 1fr} }
+@media(min-width:1040px){ .grid{grid-template-columns:1fr 1fr 1fr} }
+
+/* Card */
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  display:flex; flex-direction:column; gap:10px;
+  min-height:240px; /* 統一高さやや低め */
+  transition:transform .12s ease, box-shadow .12s ease;
 }
-button {
-  padding: 0.5em 1em;
-  border-radius: 20px;
-  border: none;
-  background: #eee;
-  cursor: pointer;
+.card:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.row-top{display:flex; align-items:center; justify-content:space-between; gap:8px}
+.title{font-weight:700; color:#000; margin:0; font-size:16px}
+.meta{color:#666; font-size:13px; white-space:nowrap}
+/* 地図チップ（画像の代替） */
+.mapchip{
+  display:flex; align-items:center; gap:8px;
+  background:#F7F7F7; border:1px solid var(--line); border-radius:12px; padding:10px; 
 }
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-.card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 1em;
-  display: flex;
-  gap: 1em;
-}
-.card img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-.card-content {
-  flex: 1;
-}
-.card h3 {
-  margin: 0;
-}
+.map-ic{width:20px; height:20px; display:inline-block; background:var(--accent); border-radius:4px; mask: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23000%22><path d=%22M12 2C8.687 2 6 4.687 6 8c0 4.5 6 14 6 14s6-9.5 6-14c0-3.313-2.687-6-6-6zm0 8.5c-1.379 0-2.5-1.121-2.5-2.5S10.621 5.5 12 5.5s2.5 1.121 2.5 2.5S13.379 10.5 12 10.5z%22/></svg>') center/contain no-repeat;}
+.map-link{margin-left:auto; text-decoration:none; color:var(--accent); font-weight:600; font-size:13px}
+.label{font-size:12px; color:#999}
+.summary{font-size:14px; color:#000; line-height:1.55}
+.price{font-size:13px; color:#555}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--line); padding:20px; text-align:center; color:#777; font-size:12px}
