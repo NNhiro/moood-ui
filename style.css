@@ -3,10 +3,10 @@
   --bg:#FAFAFA;
   --panel:#FFFFFF;
   --ink:#111111;
-  --ink-sub:#444444; /* タイトルは黒に近いグレー */
+  --ink-sub:#444444;
   --muted:#888888;
   --line:#EAEAEA;
-  --accent:#F24E1E;  /* レッド寄りのオレンジをアクセントに */
+  --accent:#F24E1E;
   --accent-quiet:#FFE8E0;
 }
 *{box-sizing:border-box}
@@ -26,17 +26,13 @@ body{
 .brand{display:flex; align-items:center; gap:10px;}
 .logo-dot{width:14px; height:14px; border-radius:50%; background:var(--accent);}
 .brand-name{font-weight:700; letter-spacing:0.2px; color:var(--ink-sub)}
-.site-nav a{color:var(--ink-sub); text-decoration:none; margin-left:16px; font-size:14px}
-.site-nav a:hover{opacity:.8}
 
 /* Hero */
 .hero{background:linear-gradient(180deg, #fff, #fafafa); border-bottom:1px solid var(--line)}
-.hero-inner{max-width:1040px; margin:0 auto; padding:40px 20px; text-align:center}
+.hero-inner{max-width:1040px; margin:0 auto; padding:36px 20px 24px; text-align:center}
 .hero-title{color:var(--ink-sub); font-size:28px; margin:0 0 8px}
 .accent{color:var(--accent)}
-.hero-copy{color:#555; margin:0 0 18px}
-.hero-cta{display:inline-block; padding:10px 16px; background:var(--accent); color:#fff; border-radius:10px; text-decoration:none}
-.hero-cta:hover{opacity:.95}
+.hero-copy{color:#555; margin:0}
 
 /* Filters */
 .filters{max-width:1040px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns:1fr; gap:20px}
@@ -61,14 +57,13 @@ body{
   border-radius:16px;
   padding:14px;
   display:flex; flex-direction:column; gap:10px;
-  min-height:240px; /* 統一高さやや低め */
+  min-height:220px;
   transition:transform .12s ease, box-shadow .12s ease;
 }
 .card:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.06)}
 .row-top{display:flex; align-items:center; justify-content:space-between; gap:8px}
 .title{font-weight:700; color:#000; margin:0; font-size:16px}
 .meta{color:#666; font-size:13px; white-space:nowrap}
-/* 地図チップ（画像の代替） */
 .mapchip{
   display:flex; align-items:center; gap:8px;
   background:#F7F7F7; border:1px solid var(--line); border-radius:12px; padding:10px; 
