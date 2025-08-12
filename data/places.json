@@ -1,0 +1,30 @@
+[
+  {
+    "id": "omotesando_cafe_lce",
+    "name": "表参道 カフェLCE",
+    "address": "東京都港区南青山",
+    "areaTags": ["表参道・青山・表参道"],
+    "moodTags": ["落ち着いた", "おしゃれ"],
+    "genreTags": ["カフェ", "スイーツ"],
+    "rating": 4.4,
+    "reviewsCount": 320,
+    "priceLevel": 2,
+    "photo": "assets/omotesando_cafe_lce.jpg",
+    "reviewSummary": "Wi-Fi完備で落ち着いて過ごせる。",
+    "location": { "lat": 35.665, "lng": 139.712 }
+  },
+  {
+    "id": "ostrea_roppongi",
+    "name": "オストレア 六本木",
+    "address": "東京都港区六本木",
+    "areaTags": ["六本木・麻布・広尾"],
+    "moodTags": ["おしゃれ", "デート"],
+    "genreTags": ["イタリアン", "バル"],
+    "rating": 4.2,
+    "reviewsCount": 220,
+    "priceLevel": 3,
+    "photo": "assets/ostrea_roppongi.jpg",
+    "reviewSummary": "牡蠣が新鮮。ペアで行く雰囲気。",
+    "location": { "lat": 35.662, "lng": 139.731 }
+  }
+]
