@@ -3,20 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOOOOD | ムードとエリアで選ぶ飲食レコメンド</title>
-  <meta name="description" content="ムード×ジャンル×エリアで探す飲食店モックUI">
+  <title>MOOOOD | JSON Loading Demo</title>
+  <meta name="description" content="ムード×ジャンル×エリアで探す飲食店。JSONから読み込み動的生成。">
   <link rel="preload" href="assets/logo.svg" as="image">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
-    <a class="logo" href="#">
-      <img src="assets/logo.svg" alt="MOOOOD ロゴ">
-      <span class="brand">MOOOOD</span>
-    </a>
-    <div class="header-actions">
-      <!-- reserved for future controls -->
-    </div>
+    <a class="logo" href="#"><img src="assets/logo.svg" alt="MOOOOD ロゴ"><span class="brand">MOOOOD</span></a>
   </header>
 
   <main class="container">
@@ -29,7 +23,7 @@
         <span class="chip" data-group="area" data-value="上野">上野</span>
         <span class="chip" data-group="area" data-value="池袋">池袋</span>
         <span class="chip" data-group="area" data-value="中目黒">中目黒</span>
-        <button id="clearBtn" class="clear-btn" title="すべて解除">クリア</button>
+        <button id="clearBtn" class="clear-btn">クリア</button>
       </div>
       <div class="filter-row">
         <span class="filter-label">ムード</span>
@@ -55,174 +49,10 @@
       </div>
     </section>
 
-    <section class="grid" aria-label="店舗一覧" id="cards">
-      <!-- Cards: uniform height; each card includes image, name, price, rating, review count -->
-      <article class="card" data-area="新宿,渋谷" data-mood="にぎやか,さくっと" data-genre="バル,焼き鳥">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/炭焼きバル_TONO.svg" alt="炭焼きバル TONO">
-        </div>
-        <div class="body">
-          <div class="title">炭焼きバル TONO</div>
-          <div class="meta">
-            <span class="price">¥¥</span>
-            <span class="rating">★ 4.2</span>
-            <span class="reviews">(128)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">新宿</span>
-            <span class="badge">にぎやか</span>
-            <span class="badge">バル</span>
-          </div>
-          <p class="summary">炭火香るジューシーな焼き鳥とワインが絶品。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="渋谷,中目黒" data-mood="デート,しっぽり" data-genre="イタリアン,バル">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/トマト食堂_ROSSO.svg" alt="トマト食堂 ROSSO">
-        </div>
-        <div class="body">
-          <div class="title">トマト食堂 ROSSO</div>
-          <div class="meta">
-            <span class="price">¥¥¥</span>
-            <span class="rating">★ 4.4</span>
-            <span class="reviews">(86)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">渋谷</span>
-            <span class="badge">デート</span>
-            <span class="badge">バル</span>
-          </div>
-          <p class="summary">完熟トマトソースとモチモチ生パスタが人気。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="東京駅,上野" data-mood="会食,しっぽり" data-genre="寿司,和食">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/寿司_こはだ.svg" alt="寿司 こはだ">
-        </div>
-        <div class="body">
-          <div class="title">寿司 こはだ</div>
-          <div class="meta">
-            <span class="price">¥¥¥¥</span>
-            <span class="rating">★ 4.6</span>
-            <span class="reviews">(211)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">東京駅</span>
-            <span class="badge">会食</span>
-            <span class="badge">寿司</span>
-          </div>
-          <p class="summary">旬の魚を丁寧に握る、静かで落ち着いた寿司店。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="新宿,池袋" data-mood="さくっと,ひとり" data-genre="カレー">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/スパイスカレー_かぜ.svg" alt="スパイスカレー かぜ">
-        </div>
-        <div class="body">
-          <div class="title">スパイスカレー かぜ</div>
-          <div class="meta">
-            <span class="price">¥</span>
-            <span class="rating">★ 4.1</span>
-            <span class="reviews">(312)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">池袋</span>
-            <span class="badge">さくっと</span>
-            <span class="badge">カレー</span>
-          </div>
-          <p class="summary">スパイスが効いた香り高いカレーがクセになる。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="上野,東京駅" data-mood="にぎやか,さくっと" data-genre="ラーメン">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/台湾まぜそば_はる.svg" alt="台湾まぜそば はる">
-        </div>
-        <div class="body">
-          <div class="title">台湾まぜそば はる</div>
-          <div class="meta">
-            <span class="price">¥</span>
-            <span class="rating">★ 3.9</span>
-            <span class="reviews">(98)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">上野</span>
-            <span class="badge">にぎやか</span>
-            <span class="badge">ラーメン</span>
-          </div>
-          <p class="summary">もちもち麺とピリ辛タレが癖になる台湾まぜそば。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="中目黒,渋谷" data-mood="デート,しっぽり" data-genre="カフェ">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/カフェ_Lento.svg" alt="カフェ Lento">
-        </div>
-        <div class="body">
-          <div class="title">カフェ Lento</div>
-          <div class="meta">
-            <span class="price">¥¥</span>
-            <span class="rating">★ 4.3</span>
-            <span class="reviews">(154)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">中目黒</span>
-            <span class="badge">しっぽり</span>
-            <span class="badge">カフェ</span>
-          </div>
-          <p class="summary">静かな空間でこだわりの珈琲とケーキが楽しめる。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="新宿,上野" data-mood="さくっと,にぎやか" data-genre="立ち飲み,和食">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/立ち飲み_くじら.svg" alt="立ち飲み くじら">
-        </div>
-        <div class="body">
-          <div class="title">立ち飲み くじら</div>
-          <div class="meta">
-            <span class="price">¥</span>
-            <span class="rating">★ 4.0</span>
-            <span class="reviews">(77)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">新宿</span>
-            <span class="badge">さくっと</span>
-            <span class="badge">立ち飲み</span>
-          </div>
-          <p class="summary">立ち寄りやすく、手頃で旨い肴と酒が魅力の立ち飲み。</p>
-        </div>
-      </article>
-
-      <article class="card" data-area="東京駅,渋谷" data-mood="会食,しっぽり" data-genre="フレンチ,バル">
-        <div class="img-wrap">
-          <img loading="lazy" src="assets/ビストロ_étoile.svg" alt="ビストロ étoile">
-        </div>
-        <div class="body">
-          <div class="title">ビストロ étoile</div>
-          <div class="meta">
-            <span class="price">¥¥¥</span>
-            <span class="rating">★ 4.5</span>
-            <span class="reviews">(45)</span>
-          </div>
-          <div class="badges">
-            <span class="badge">東京駅</span>
-            <span class="badge">会食</span>
-            <span class="badge">フレンチ</span>
-          </div>
-          <p class="summary">本格フレンチをカジュアルに楽しめる隠れ家。</p>
-        </div>
-      </article>
-    </section>
+    <section class="grid" aria-label="店舗一覧" id="cards"></section>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 MOOOOD — demo mock UI</p>
-  </footer>
-
+  <footer class="footer"><p>© 2025 MOOOOD — json demo</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
