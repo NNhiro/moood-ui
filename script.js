@@ -6,51 +6,45 @@ const qsa = (s,r=document)=>Array.from(r.querySelectorAll(s));
 function toggleChip(chip){
   chip.classList.toggle('active');
   const g = chip.dataset.group, v = chip.dataset.value;
-  const set = state[g];
-  chip.classList.contains('active') ? set.add(v) : set.delete(v);
+  const set = state[g]; chip.classList.contains('active') ? set.add(v) : set.delete(v);
   render();
 }
-function clearFilters(){
-  qsa('.chip.active').forEach(c=>c.classList.remove('active'));
-  state.area.clear(); state.mood.clear(); state.genre.clear();
-  render();
-}
+function clearFilters(){ qsa('.chip.active').forEach(c=>c.classList.remove('active')); state.area.clear(); state.mood.clear(); state.genre.clear(); render(); }
 
 let places = [];
+let loadedPath = "";
 
 async function loadData(){
-  const tryPaths = ["data/places.json","data/places.sample.json"];
-  for(const p of tryPaths){
+  const candidates = [
+    "data/places.json",
+    "data/places.sample.json",
+    "data/data.json",
+    "data.json"
+  ];
+  for(const p of candidates){
     try{
       const res = await fetch(p, {cache:"no-store"});
-      if(res.ok){ places = await res.json(); return; }
+      if(res.ok){
+        places = await res.json();
+        loadedPath = p;
+        console.info("[MOOOOD] loaded:", p);
+        qs("#dataSource").textContent = p;
+        return;
+      }
     }catch(e){ /* try next */ }
   }
-  places = [];
+  places = []; loadedPath = "(none)";
+  qs("#dataSource").textContent = "no data";
 }
 
 function priceToYen(p){ return "¥".repeat(Math.max(1, Math.min(4, p||1))); }
-
-function summarize(text, max=50){
-  if(!text) return "";
-  const full = text.replace(/\s+/g,"").slice(0, max);
-  return full + (text.length > max ? "…" : "");
-}
+function summarize(text, max=50){ if(!text) return ""; const t=text.replace(/\s+/g,""); return t.slice(0,max)+(t.length>max?"…":""); }
 
 function match(item){
-  // each filter is OR within group, AND across groups
-  const groups = [
-    ["area", item.areaTags||[]],
-    ["mood", item.moodTags||[]],
-    ["genre", item.genreTags||[]]
-  ];
+  const groups = [["area", item.areaTags||[]],["mood", item.moodTags||[]],["genre", item.genreTags||[]]];
   for(const [k, arr] of groups){
     const sel = state[k];
-    if(sel.size>0){
-      let ok = false;
-      for(const v of sel){ if(arr.includes(v)) { ok = true; break; } }
-      if(!ok) return false;
-    }
+    if(sel.size>0){ let ok=false; for(const v of sel){ if(arr.includes(v)) { ok=true; break; } } if(!ok) return false; }
   }
   return true;
 }
@@ -64,7 +58,6 @@ function cardTpl(it){
   const genreBadge = (it.genreTags||[])[0] || "";
   const ratings = `★ ${Number(it.rating||0).toFixed(1)}`;
   const rc = `(${it.reviewsCount||0})`;
-
   return `<article class="card">
     <div class="img-wrap"><img loading="lazy" src="${photo}" alt="${it.name}"></div>
     <div class="body">
@@ -93,5 +86,4 @@ async function init(){
   await loadData();
   render();
 }
-
 document.addEventListener('DOMContentLoaded', init);

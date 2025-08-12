@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOOOOD | JSON Loading Demo</title>
-  <meta name="description" content="ムード×ジャンル×エリアで探す飲食店。JSONから読み込み動的生成。">
+  <title>MOOOOD | JSON Loading v1.1</title>
+  <meta name="description" content="JSONから読み込み、動的にカード描画します。">
   <link rel="preload" href="assets/logo.svg" as="image">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
     <a class="logo" href="#"><img src="assets/logo.svg" alt="MOOOOD ロゴ"><span class="brand">MOOOOD</span></a>
+    <span id="dataSource" class="badge-src" title="Loaded data source">loading…</span>
   </header>
 
   <main class="container">
@@ -52,7 +53,7 @@
     <section class="grid" aria-label="店舗一覧" id="cards"></section>
   </main>
 
-  <footer class="footer"><p>© 2025 MOOOOD — json demo</p></footer>
+  <footer class="footer"><p>© 2025 MOOOOD — json demo v1.1</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
